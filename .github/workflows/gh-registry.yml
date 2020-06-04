@@ -23,12 +23,8 @@ jobs:
       run: |
         cd docker/ && make build && cd ../
 
-    # - name: Push to Github Package Registry
-    #   run: |
-    #     docker login docker.pkg.github.com -u nobiki -p ${{ secrets.GH_ACCESS_TOKEN }}
-    #     docker tag actions-example docker.pkg.github.com/nobiki/actions-test/actions-example:latest
-    #     docker push docker.pkg.github.com/nobiki/actions-test/actions-example:latest
     - name: Push to Github Package Registry
       run: |
+        docker login docker.pkg.github.com -u morimotoshimei -p ${{ secrets.GH_ACCESS_TOKEN }}
         docker tag actions-example docker.pkg.github.com/morimotoshimei/gh-actions-test/actions-example:latest
         docker push docker.pkg.github.com/morimotoshimei/gh-actions-test/actions-example:latest
